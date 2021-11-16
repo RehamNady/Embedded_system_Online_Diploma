@@ -3,7 +3,7 @@
  *
  *  Created on: Nov 16, 2021
  *      Author: reham
- *      Find the largest number among three numbers
+ *      Find the Largest number among three Numbers
  */
 
 #include <stdio.h>
