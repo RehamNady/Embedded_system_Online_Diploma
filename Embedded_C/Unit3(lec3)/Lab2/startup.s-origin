@@ -1,0 +1,33 @@
+/* startup_cortexM3.s
+SRAM start at 0x20000000*/
+
+.section .vectors
+
+.word _stack_top
+.word _reset
+.word Vector_handler    /* 2 NMI*/
+.word Vector_handler    /* 3 Hard Fault*/
+.word Vector_handler    /* 4 NM Fault*/
+.word Vector_handler    /*5 Bus Fault*/
+.word Vector_handler    /*6 usage fault*/
+.word Vector_handler    /*7 Reserved*/
+.word Vector_handler    /*8 reserved*/
+.word Vector_handler    /*9 reserved*/
+.word Vector_handler    /*10 reserved*/
+.word Vector_handler
+.word Vector_handler
+.word Vector_handler
+.word Vector_handler
+.word Vector_handler
+.word Vector_handler
+.word Vector_handler
+.word Vector_handler
+.word Vector_handler
+
+.section .text
+_reset:
+  bl main
+  b .
+.thumb_func
+Vector_handler:
+ b _reset
