@@ -9,45 +9,45 @@ sram             0x20000000         0x00005000         xrw
 Linker script and memory map
 
 
-.text           0x08000000      0x190
+.text           0x08000000      0x194
  *(.vectors*)
- .vectors       0x08000000       0x18 startup.o
+ .vectors       0x08000000       0x1c startup.o
                 0x08000000                vectors
  *(.text*)
- .text          0x08000018       0xb8 main.o
-                0x08000018                main
- .text          0x080000d0       0xbc startup.o
-                0x080000d0                Reset_Handler
-                0x08000180                NMI_Handler
-                0x08000180                Default_Handler
-                0x08000180                H_fault_Handler
-                0x08000180                Usage_Fault_Handler
-                0x08000180                NM_fault_Handler
-                0x08000180                BUs_Fault
+ .text          0x0800001c       0xb8 main.o
+                0x0800001c                main
+ .text          0x080000d4       0xbc startup.o
+                0x080000d4                Reset_Handler
+                0x08000184                NMI_Handler
+                0x08000184                Default_Handler
+                0x08000184                H_fault_Handler
+                0x08000184                Usage_Fault_Handler
+                0x08000184                NM_fault_Handler
+                0x08000184                BUs_Fault
  *(.rodata)
- .rodata        0x0800018c        0x4 main.o
-                0x0800018c                const_variable
-                0x08000190                _E_text = .
+ .rodata        0x08000190        0x4 main.o
+                0x08000190                const_variable
+                0x08000194                _E_text = .
 
-.glue_7         0x08000190        0x0
+.glue_7         0x08000194        0x0
  .glue_7        0x00000000        0x0 linker stubs
 
-.glue_7t        0x08000190        0x0
+.glue_7t        0x08000194        0x0
  .glue_7t       0x00000000        0x0 linker stubs
 
-.vfp11_veneer   0x08000190        0x0
+.vfp11_veneer   0x08000194        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x08000190        0x0
+.v4_bx          0x08000194        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x08000190        0x0
+.iplt           0x08000194        0x0
  .iplt          0x00000000        0x0 main.o
 
-.rel.dyn        0x08000190        0x0
+.rel.dyn        0x08000194        0x0
  .rel.iplt      0x00000000        0x0 main.o
 
-.data           0x20000000       0x10 load address 0x08000190
+.data           0x20000000       0x10 load address 0x08000194
                 0x20000000                _S_Data = .
  *(.data)
  .data          0x20000000       0x10 main.o
@@ -58,10 +58,10 @@ Linker script and memory map
  .data          0x20000010        0x0 startup.o
                 0x20000010                _E_Data = .
 
-.igot.plt       0x20000010        0x0 load address 0x080001a0
+.igot.plt       0x20000010        0x0 load address 0x080001a4
  .igot.plt      0x00000000        0x0 main.o
 
-.bss            0x20000010        0x0 load address 0x080001a0
+.bss            0x20000010        0x0 load address 0x080001a4
                 0x20000010                _S_bss = .
  *(.bss)
  .bss           0x20000010        0x0 main.o

@@ -15,6 +15,7 @@ extern unsigned int _E_Data;
 extern int main(void);
 uint32_t vectors[] __attribute__((section(".vectors")))={
   (uint32_t) &_stack_top,
+  (uint32_t) &Reset_Handler,
   (uint32_t) &NMI_Handler,
   (uint32_t) &H_fault_Handler,
   (uint32_t) &NM_fault_Handler,
