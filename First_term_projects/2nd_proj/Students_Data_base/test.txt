@@ -1,0 +1,6 @@
+1 Marco Magdy 3.5 1 2 3 4 5 
+2 pavly salah 3 80 12 37 29 63
+2 reham salah 3 85 10 7 29 63
+3 bolis Karam 3.5 45 21 55 18 46
+4 keroles Gamal 3.5 45 21 55 18 46 
+NULL
