@@ -1,0 +1,274 @@
+15:51:21 **** Build of configuration Debug for project Single_and_multi_pressing ****
+make -j2 all 
+arm-none-eabi-gcc -gdwarf-2 -mcpu=cortex-m3 -g3 -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f103c6tx.d" -MT"Startup/startup_stm32f103c6tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c6tx.o" "../Startup/startup_stm32f103c6tx.s"
+arm-none-eabi-gcc -gdwarf-2 "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -gdwarf-2 "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+In file included from ../Src/main.c:24:0:
+../Src/GPIO_HW.h:13:0: warning: "GPIOA_Base" redefined
+ #define GPIOA_Base 0x40010C00
+ 
+../Src/GPIO_HW.h:12:0: note: this is the location of the previous definition
+ #define GPIOA_Base 0x40010800
+ 
+../Src/main.c: In function 'GPIO_init':
+../Src/GPIO_HW.h:22:47: error: 'GPIOB_Base' undeclared (first use in this function); did you mean 'GPIOA_Base'?
+ #define GPIOB_CRL *((volatile unsigned int *)(GPIOB_Base+0x00))
+                                               ^
+../Src/main.c:35:2: note: in expansion of macro 'GPIOB_CRL'
+  GPIOB_CRL &=~(0b111<<5);
+  ^~~~~~~~~
+../Src/GPIO_HW.h:22:47: note: each undeclared identifier is reported only once for each function it appears in
+ #define GPIOB_CRL *((volatile unsigned int *)(GPIOB_Base+0x00))
+                                               ^
+../Src/main.c:35:2: note: in expansion of macro 'GPIOB_CRL'
+  GPIOB_CRL &=~(0b111<<5);
+  ^~~~~~~~~
+../Src/main.c: In function 'main':
+../Src/GPIO_HW.h:25:46: error: 'GPIOB_Base' undeclared (first use in this function); did you mean 'GPIOA_Base'?
+ #define GPIOB_ODR *((volatile unsigned int*)(GPIOB_Base+0x0C))
+                                              ^
+../Src/main.c:68:4: note: in expansion of macro 'GPIOB_ODR'
+    GPIOB_ODR ^=1<<1;  //toggle bit
+    ^~~~~~~~~
+make: *** [Src/subdir.mk:24: Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j2 all" terminated with exit code 2. Build might be incomplete.
+15:52:08 **** Incremental Build of configuration Debug for project Single_and_multi_pressing ****
+make -j2 all 
+arm-none-eabi-gcc -gdwarf-2 "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -gdwarf-2 "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -gdwarf-2 -o "Single_and_multi_pressing.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\1st_step\Learn_in_depth\projects\Embedded_system_Online_Diploma\Unit7(MCUEssential)\Assignment\New folder\Single_and_multi_pressing\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Single_and_multi_pressing.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Single_and_multi_pressing.elf
+ 
+arm-none-eabi-size   Single_and_multi_pressing.elf 
+arm-none-eabi-objdump -h -S  Single_and_multi_pressing.elf  > "Single_and_multi_pressing.list"
+   text	   data	    bss	    dec	    hex	filename
+    852	      8	   1568	   2428	    97c	Single_and_multi_pressing.elf
+Finished building: default.size.stdout
+ 
+arm-none-eabi-objcopy  -O binary  Single_and_multi_pressing.elf  "Single_and_multi_pressing.bin"
+Finished building: Single_and_multi_pressing.list
+ 
+Finished building: Single_and_multi_pressing.bin
+ 
+15:54:41 **** Incremental Build of configuration Debug for project Single_and_multi_pressing ****
+make -j2 all 
+arm-none-eabi-gcc -gdwarf-2 "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -gdwarf-2 -o "Single_and_multi_pressing.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\1st_step\Learn_in_depth\projects\Embedded_system_Online_Diploma\Unit7(MCUEssential)\Assignment\New folder\Single_and_multi_pressing\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Single_and_multi_pressing.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Single_and_multi_pressing.elf
+ 
+arm-none-eabi-objdump -h -S  Single_and_multi_pressing.elf  > "Single_and_multi_pressing.list"
+arm-none-eabi-objcopy  -O binary  Single_and_multi_pressing.elf  "Single_and_multi_pressing.bin"
+Finished building: Single_and_multi_pressing.bin
+Finished building: Single_and_multi_pressing.list
+ 
+ 
+arm-none-eabi-size   Single_and_multi_pressing.elf 
+   text	   data	    bss	    dec	    hex	filename
+    864	      8	   1568	   2440	    988	Single_and_multi_pressing.elf
+Finished building: default.size.stdout
+ 
+16:01:14 **** Incremental Build of configuration Debug for project Single_and_multi_pressing ****
+make -j2 all 
+arm-none-eabi-gcc -gdwarf-2 "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -gdwarf-2 -o "Single_and_multi_pressing.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\1st_step\Learn_in_depth\projects\Embedded_system_Online_Diploma\Unit7(MCUEssential)\Assignment\New folder\Single_and_multi_pressing\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Single_and_multi_pressing.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Single_and_multi_pressing.elf
+ 
+arm-none-eabi-objdump -h -S  Single_and_multi_pressing.elf  > "Single_and_multi_pressing.list"
+arm-none-eabi-objcopy  -O binary  Single_and_multi_pressing.elf  "Single_and_multi_pressing.bin"
+Finished building: Single_and_multi_pressing.bin
+Finished building: Single_and_multi_pressing.list
+ 
+ 
+arm-none-eabi-size   Single_and_multi_pressing.elf 
+   text	   data	    bss	    dec	    hex	filename
+    864	      8	   1568	   2440	    988	Single_and_multi_pressing.elf
+Finished building: default.size.stdout
+ 
+16:07:19 **** Incremental Build of configuration Debug for project Single_and_multi_pressing ****
+make -j2 all 
+arm-none-eabi-gcc -gdwarf-2 "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -gdwarf-2 -o "Single_and_multi_pressing.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\1st_step\Learn_in_depth\projects\Embedded_system_Online_Diploma\Unit7(MCUEssential)\Assignment\New folder\Single_and_multi_pressing\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Single_and_multi_pressing.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Single_and_multi_pressing.elf
+ 
+arm-none-eabi-objdump -h -S  Single_and_multi_pressing.elf  > "Single_and_multi_pressing.list"
+arm-none-eabi-objcopy  -O binary  Single_and_multi_pressing.elf  "Single_and_multi_pressing.bin"
+Finished building: Single_and_multi_pressing.bin
+Finished building: Single_and_multi_pressing.list
+ 
+arm-none-eabi-size   Single_and_multi_pressing.elf 
+ 
+   text	   data	    bss	    dec	    hex	filename
+    864	      8	   1568	   2440	    988	Single_and_multi_pressing.elf
+Finished building: default.size.stdout
+ 
+16:13:31 **** Incremental Build of configuration Debug for project Single_and_multi_pressing ****
+make -j2 all 
+arm-none-eabi-gcc -gdwarf-2 "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -gdwarf-2 -o "Single_and_multi_pressing.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\1st_step\Learn_in_depth\projects\Embedded_system_Online_Diploma\Unit7(MCUEssential)\Assignment\New folder\Single_and_multi_pressing\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Single_and_multi_pressing.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Single_and_multi_pressing.elf
+ 
+arm-none-eabi-objdump -h -S  Single_and_multi_pressing.elf  > "Single_and_multi_pressing.list"
+arm-none-eabi-objcopy  -O binary  Single_and_multi_pressing.elf  "Single_and_multi_pressing.bin"
+Finished building: Single_and_multi_pressing.bin
+Finished building: Single_and_multi_pressing.list
+ 
+ 
+arm-none-eabi-size   Single_and_multi_pressing.elf 
+   text	   data	    bss	    dec	    hex	filename
+    864	      8	   1568	   2440	    988	Single_and_multi_pressing.elf
+Finished building: default.size.stdout
+ 
+16:15:20 **** Incremental Build of configuration Debug for project Single_and_multi_pressing ****
+make -j2 all 
+arm-none-eabi-gcc -gdwarf-2 "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -gdwarf-2 -o "Single_and_multi_pressing.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\1st_step\Learn_in_depth\projects\Embedded_system_Online_Diploma\Unit7(MCUEssential)\Assignment\New folder\Single_and_multi_pressing\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Single_and_multi_pressing.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Single_and_multi_pressing.elf
+ 
+arm-none-eabi-objdump -h -S  Single_and_multi_pressing.elf  > "Single_and_multi_pressing.list"
+arm-none-eabi-objcopy  -O binary  Single_and_multi_pressing.elf  "Single_and_multi_pressing.bin"
+Finished building: Single_and_multi_pressing.bin
+Finished building: Single_and_multi_pressing.list
+ 
+ 
+arm-none-eabi-size   Single_and_multi_pressing.elf 
+   text	   data	    bss	    dec	    hex	filename
+    864	      8	   1568	   2440	    988	Single_and_multi_pressing.elf
+Finished building: default.size.stdout
+ 
+16:24:40 **** Build of configuration Debug for project lab1_7 ****
+make -j2 all 
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f103c6tx.d" -MT"Startup/startup_stm32f103c6tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c6tx.o" "../Startup/startup_stm32f103c6tx.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:78:2: warning: statement with no effect [-Wunused-value]
+  clk_init;
+  ^~~~~~~~
+../Src/main.c:79:2: warning: statement with no effect [-Wunused-value]
+  GPIO_init;
+  ^~~~~~~~~
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "lab1_7.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\1_st_step_stm32\New folder\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab1_7.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: lab1_7.elf
+ 
+arm-none-eabi-size   lab1_7.elf 
+arm-none-eabi-objdump -h -S  lab1_7.elf  > "lab1_7.list"
+   text	   data	    bss	    dec	    hex	filename
+    668	      8	   1568	   2244	    8c4	lab1_7.elf
+Finished building: default.size.stdout
+ 
+arm-none-eabi-objcopy  -O binary  lab1_7.elf  "lab1_7.bin"
+Finished building: lab1_7.list
+ 
+Finished building: lab1_7.bin
+ 
+16:25:15 **** Incremental Build of configuration Debug for project lab1_7 ****
+make -j2 all 
+arm-none-eabi-gcc -gdwarf-2 -mcpu=cortex-m3 -g3 -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f103c6tx.d" -MT"Startup/startup_stm32f103c6tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c6tx.o" "../Startup/startup_stm32f103c6tx.s"
+arm-none-eabi-gcc -gdwarf-2 "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:78:2: warning: statement with no effect [-Wunused-value]
+  clk_init;
+  ^~~~~~~~
+../Src/main.c:79:2: warning: statement with no effect [-Wunused-value]
+  GPIO_init;
+  ^~~~~~~~~
+arm-none-eabi-gcc -gdwarf-2 "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc -gdwarf-2 "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -gdwarf-2 -o "lab1_7.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\1_st_step_stm32\New folder\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab1_7.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: lab1_7.elf
+ 
+arm-none-eabi-objdump -h -S  lab1_7.elf  > "lab1_7.list"
+arm-none-eabi-objcopy  -O binary  lab1_7.elf  "lab1_7.bin"
+Finished building: lab1_7.list
+Finished building: lab1_7.bin
+ 
+arm-none-eabi-size   lab1_7.elf 
+ 
+   text	   data	    bss	    dec	    hex	filename
+    668	      8	   1568	   2244	    8c4	lab1_7.elf
+Finished building: default.size.stdout
+ 
+16:25:58 **** Incremental Build of configuration Debug for project lab1_7 ****
+make -j2 all 
+arm-none-eabi-gcc -gdwarf-2 "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -gdwarf-2 -o "lab1_7.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\1_st_step_stm32\New folder\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab1_7.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: lab1_7.elf
+ 
+arm-none-eabi-objdump -h -S  lab1_7.elf  > "lab1_7.list"
+arm-none-eabi-objcopy  -O binary  lab1_7.elf  "lab1_7.bin"
+Finished building: lab1_7.list
+Finished building: lab1_7.bin
+ 
+ 
+arm-none-eabi-size   lab1_7.elf 
+   text	   data	    bss	    dec	    hex	filename
+    840	      8	   1568	   2416	    970	lab1_7.elf
+Finished building: default.size.stdout
+ 
+16:35:17 **** Incremental Build of configuration Debug for project lab1_7 ****
+make -j2 all 
+arm-none-eabi-gcc -gdwarf-2 "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -gdwarf-2 -o "lab1_7.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\1_st_step_stm32\New folder\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab1_7.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: lab1_7.elf
+ 
+arm-none-eabi-objdump -h -S  lab1_7.elf  > "lab1_7.list"
+arm-none-eabi-objcopy  -O binary  lab1_7.elf  "lab1_7.bin"
+Finished building: lab1_7.list
+ 
+arm-none-eabi-size   lab1_7.elf 
+Finished building: lab1_7.bin
+   text	   data	    bss	    dec	    hex	filename
+    860	      8	   1568	   2436	    984	lab1_7.elf
+ 
+Finished building: default.size.stdout
+ 
+16:53:37 **** Incremental Build of configuration Debug for project Single_and_multi_pressing ****
+make -j2 all 
+arm-none-eabi-gcc -gdwarf-2 "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -gdwarf-2 -o "Single_and_multi_pressing.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\1st_step\Learn_in_depth\projects\Embedded_system_Online_Diploma\Unit7(MCUEssential)\Assignment\New folder\Single_and_multi_pressing\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Single_and_multi_pressing.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Single_and_multi_pressing.elf
+ 
+arm-none-eabi-objdump -h -S  Single_and_multi_pressing.elf  > "Single_and_multi_pressing.list"
+arm-none-eabi-objcopy  -O binary  Single_and_multi_pressing.elf  "Single_and_multi_pressing.bin"
+Finished building: Single_and_multi_pressing.bin
+Finished building: Single_and_multi_pressing.list
+ 
+ 
+arm-none-eabi-size   Single_and_multi_pressing.elf 
+   text	   data	    bss	    dec	    hex	filename
+    864	      8	   1568	   2440	    988	Single_and_multi_pressing.elf
+Finished building: default.size.stdout
+ 
+16:53:38 **** Incremental Build of configuration Debug for project lab1_7 ****
+make -j2 all 
+arm-none-eabi-size   lab1_7.elf 
+   text	   data	    bss	    dec	    hex	filename
+    860	      8	   1568	   2436	    984	lab1_7.elf
+Finished building: default.size.stdout
+ 
+16:53:52 **** Incremental Build of configuration Debug for project Single_and_multi_pressing ****
+make -j2 all 
+arm-none-eabi-size   Single_and_multi_pressing.elf 
+   text	   data	    bss	    dec	    hex	filename
+    864	      8	   1568	   2440	    988	Single_and_multi_pressing.elf
+Finished building: default.size.stdout
+ 
+16:55:43 **** Incremental Build of configuration Debug for project Single_and_multi_pressing ****
+make -j2 all 
+arm-none-eabi-gcc -gdwarf-2 "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -gdwarf-2 -o "Single_and_multi_pressing.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\1st_step\Learn_in_depth\projects\Embedded_system_Online_Diploma\Unit7(MCUEssential)\Assignment\New folder\Single_and_multi_pressing\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Single_and_multi_pressing.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Single_and_multi_pressing.elf
+ 
+arm-none-eabi-objdump -h -S  Single_and_multi_pressing.elf  > "Single_and_multi_pressing.list"
+arm-none-eabi-objcopy  -O binary  Single_and_multi_pressing.elf  "Single_and_multi_pressing.bin"
+Finished building: Single_and_multi_pressing.bin
+Finished building: Single_and_multi_pressing.list
+ 
+ 
+arm-none-eabi-size   Single_and_multi_pressing.elf 
+   text	   data	    bss	    dec	    hex	filename
+    864	      8	   1568	   2440	    988	Single_and_multi_pressing.elf
+Finished building: default.size.stdout
+ 
